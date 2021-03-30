@@ -22,19 +22,19 @@
 <body>
     <h2> Enter Flat Details </h2>
     <form method="post" action="/details/add">
-        <input type="text" name="Name" placeholder="enter flat name">
+        <input type="text" name="Name" placeholder="enter flat name" required>
         <br><br>
-        <input type="text" name="FID" placeholder="enter flat id">
+        <input type="text" name="FID" placeholder="enter flat id" required>
         <br><br>
-        <input type="text" name="Address" placeholder="enter address">
+        <input type="text" name="Address" placeholder="enter address" required>
         <br><br>
         <input type="text" name="City" placeholder="enter city">
         <br><br>
-        <input type="text" name="District" placeholder="enter district">
+        <input type="text" name="District" placeholder="enter district" required>
         <br><br>
-        <input type="text" name="State" placeholder="enter state">
+        <input type="text" name="State" placeholder="enter state" required>
         <br><br>
-        <select name="NoOfBedroom">
+        <select name="NoOfBedroom" >
             <option>Select Type</option>
             <option value=1>1 Bedroom</option>
             <option value=2>2 Bedroom</option>
@@ -98,7 +98,7 @@
             <option value="Cemented">Cemented</option>
         </select>
         <br><br>
-        <input type="number" name="MaxIntakes" placeholder="max. no. of intakes">
+        <input type="number" name="MaxIntakes" placeholder="max. no. of intakes" required>
         <br><br>
         <select name="Furnished">
             <option>Furnished</option>
@@ -115,16 +115,16 @@
             <option value=99>99 Years</option>
         </select>
         <br><br>
-        <input type="number" name="Price" placeholder="enter price (in lacks)">
+        <input type="number" name="Price" placeholder="enter price (in lacks)" required>
 		<br><br>
 		<select name="Popularity">
             <option>Select Popularity</option>
             <option value=0>0</option>
         </select>
         <br><br>
-        <input type="number" name="CarpetArea" placeholder="enter area (in sq. ft)">
+        <input type="number" name="CarpetArea" placeholder="enter area (in sq. ft)" required>
         <br><br>
-        <input type="number" name="AgeOfFlat" placeholder="enter flat age (in years)">
+        <input type="number" name="AgeOfFlat" placeholder="enter flat age (in years)" required>
         <br><br><br>
 
         <input type="submit" value="Submit">

@@ -99,6 +99,43 @@ app.post('/details/add', function(req,res) {
 		});
 })
 
+app.get("/search/particular/094", function(req, res) {
+	session
+		.run('MATCH (n {FID: "094"}) RETURN n')
+		
+		.then (function(result) {
+			flatArray = []
+            result.records.forEach(record => {
+                //console.log(record)
+                flatArray.push({
+                	id: record._fields[0].properties.FID,
+                    name: record._fields[0].properties.Name,
+                    bed: record._fields[0].properties.NoOfBedroom,
+                    city: record._fields[0].properties.City,
+                    district: record._fields[0].properties.District,
+                    state: record._fields[0].properties.State,
+                    yoc: record._fields[0].properties.YearOfContract,
+                    price: record._fields[0].properties.Price,
+                    FID: record._fields[0].properties.FID,
+                    addr: record._fields[0].properties.Address,
+                    dwr: record._fields[0].properties.DrawingRoom,
+                    dnr: record._fields[0].properties.DiningRoom,
+                    lr: record._fields[0].properties.LaundryRoom,
+                    age: record._fields[0].properties.AgeOfFlat,
+                    area: record._fields[0].properties.CarpetArea
+                });
+                
+            });
+            //console.log(flatArray);
+			res.render('details', {
+				flats: flatArray
+			});
+		})
+		.catch(function(err) {
+			console.log(err);
+		});
+});
+
 app.listen(3000, ()=>{
     console.log(`Server running at http://localhost:${3000}/`);
 })
