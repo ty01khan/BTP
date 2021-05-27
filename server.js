@@ -75,22 +75,23 @@ app.post('/details/add', function(req,res) {
 	var city = req.body.City;
 	var dist = req.body.District;
 	var state = req.body.State;
-	const bed = req.body.NoOfBedroom;
+	const bed = parseInt(req.body.NoOfBedroom);
 	const dwr = req.body.DrawingRoom;
 	const dnr = req.body.DiningRoom;
 	const lr = req.body.LaundryRoom;
-	const kitchen = req.body.Kitchen;
-	const abr = req.body.AttachedBathroom;
-	const sbr = req.body.SharedBathroom;
-	const balcony = req.body.Balcony;
+	const kitchen = parseInt(req.body.Kitchen);
+	const abr = parseInt(req.body.AttachedBathroom);
+	const sbr = parseInt(req.body.SharedBathroom);
+	const balcony = parseInt(req.body.Balcony);
 	var floor = req.body.Flooring;
-	const mi = req.body.MaxIntakes;
+	const mi = parseInt(req.body.MaxIntakes);
 	var furnish = req.body.Furnished;
-	const yoc = req.body.YearOfContract;
-	const price = req.body.Price;
-	const popularity = req.body.Popularity;
-	const area = req.body.CarpetArea;
-	const age = req.body.AgeOfFlat;
+	const yoc = parseInt(req.body.YearOfContract);
+	const price = parseInt(req.body.Price);
+	const popularity = parseInt(req.body.Popularity);
+	const area = parseInt(req.body.CarpetArea);
+	const age = parseInt(req.body.AgeOfFlat);
+	
 	session
 		.run('CREATE (n:Details {Name: $name, FID: $fid, Address: $addr, City: $city, District: $dist, State: $state, NoOfBedroom: $bed, DrawingRoom: $dwr, DiningRoom: $dnr, LaundryRoom: $lr, Kitchen: $kitchen, AttachedBathroom: $abr, SharedBathroom: $sbr, Balcony: $balcony, Flooring: $floor, MaxIntakes: $mi, Furnished: $furnish, YearOfContract: $yoc, Price: $price, Popularity: $popularity, CarpetArea: $area, AgeOfFlat: $age}) RETURN n', {name, fid, addr, city, dist, state, bed, dwr, dnr, lr, kitchen, abr, sbr, balcony, floor, mi, furnish, yoc, price, popularity, area, age})
 		
@@ -148,7 +149,8 @@ app.post('/searching', function(req,res) {
                     yoc: record._fields[0].properties.YearOfContract,
                     price: record._fields[0].properties.Price,
                     FID: record._fields[0].properties.FID,
-                    addr: record._fields[0].properties.Address
+                    addr: record._fields[0].properties.Address,
+                    
                 });
             });
             //console.log(flatArray);
@@ -221,6 +223,7 @@ app.get('/search/particular', function(req,res) {
                     city: record._fields[0].properties.City,
                     district: record._fields[0].properties.District,
                     state: record._fields[0].properties.State,
+                    floor: record._fields[0].properties.Flooring,
                     yoc: record._fields[0].properties.YearOfContract,
                     price: record._fields[0].properties.Price,
                     FID: record._fields[0].properties.FID,
@@ -229,7 +232,14 @@ app.get('/search/particular', function(req,res) {
                     dnr: record._fields[0].properties.DiningRoom,
                     lr: record._fields[0].properties.LaundryRoom,
                     age: record._fields[0].properties.AgeOfFlat,
-                    area: record._fields[0].properties.CarpetArea
+                    area: record._fields[0].properties.CarpetArea,
+                    kitchen: record._fields[0].properties.Kitchen,
+                    abr: record._fields[0].properties.AttachedBathroom,
+                    sbr: record._fields[0].properties.SharedBathroom,
+                    balcony: record._fields[0].properties.Balcony,
+                    mi: record._fields[0].properties.MaxIntakes,
+                    furnish: record._fields[0].properties.Furnished,
+                    popularity: record._fields[0].properties.Popularity
                 });
                 
             });
