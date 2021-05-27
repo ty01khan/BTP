@@ -331,7 +331,7 @@ session.run(cypher, param29)
     .then(() => session.close());
  
 var session = driver.session();
-const param30 = { name: "Dev Bhavan", fid: "030", addr: "Patri chowk", city: "Ara", dist: "Bhojpuran", state: "Bihar", bed: 3, dwr: false, dnr: true, lr: false, kitchen: 1, abr: 1, sbr: 1, balcony: 3, floor: "Cemented", mi: 17, furnish: false, yoc: 25, price: 30, popularity: 0, area: 2000, age: 9 };
+const param30 = { name: "Dev Bhavan", fid: "030", addr: "Patri chowk", city: "Ara", dist: "Bhojpur", state: "Bihar", bed: 3, dwr: false, dnr: true, lr: false, kitchen: 1, abr: 1, sbr: 1, balcony: 3, floor: "Cemented", mi: 17, furnish: false, yoc: 25, price: 30, popularity: 0, area: 2000, age: 9 };
 session.run(cypher, param30)
     .then(function (result) {
         console.log("Flat id " + result.records[0].get("n.FID") + " is added to database");
@@ -1011,8 +1011,8 @@ session.run(cypher, param91)
     .catch(function (err) {
         console.log(err);
     })
-    .then(() => session.close());
-
+	.then(() => session.close());
+	
 var session = driver.session();
 const param92 = { name: "Mahindra Bhawan", fid: "092", addr: "Mahindra Road", city: "Chapra", dist: "Saran", state: "Bihar", bed: 2, dwr: false, dnr: false, lr: false, kitchen: 1, abr: 2, sbr: 0, balcony: 1, floor: "Tiled", mi: 8, furnish: true, yoc: 49, price: 40, popularity: 0, area: 700, age: 15 };
 session.run(cypher, param92)
@@ -1022,8 +1022,8 @@ session.run(cypher, param92)
     .catch(function (err) {
         console.log(err);
     })
-    .then(() => session.close());
-
+	.then(() => session.close());
+	
 var session = driver.session();
 const param93 = { name: "Mannat", fid: "093", addr: "Gaya Lane", city: "Chapra", dist: "Saran", state: "Bihar", bed: 3, dwr: true, dnr: true, lr: true, kitchen: 3, abr: 3, sbr: 0, balcony: 3, floor: "Marbled", mi: 12, furnish: true, yoc: 99, price: 99, popularity: 0, area: 1150, age: 6 };
 session.run(cypher, param93)
